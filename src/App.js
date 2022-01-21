@@ -17,17 +17,8 @@ export default function App() {
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     const getPhotos = async () => {
-    //         const res = await deleteContact(1);
-    //         console.log(res);
-    //     };
-    //     getPhotos();
-    // }, []);
-
     useEffect(() => dispatch(getContacts()), [dispatch]);
 
-    console.log();
     return (
         <div className="App">
             <h1>Phonebook</h1>

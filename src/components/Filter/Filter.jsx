@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import styled from 'styled-components';
 import { Form } from 'react-bootstrap';
-import { useCallback } from 'react';
 
 import { changeFilter } from '../../store/contacts/actions';
 import { getFilter } from '../../store/contacts/selectors';
