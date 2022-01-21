@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import shortid from 'shortid';
 import { Button, Form } from 'react-bootstrap';
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import contactsActions from '../../store/contacts/actions';
+import { getVisibleContacts } from '../../store/contacts/selectors';
 
 const FormWrapper = styled.form`
     display: flex;
@@ -22,6 +25,7 @@ export default function ContactForm() {
     const nameId = shortid.generate();
     const numberId = shortid.generate();
     const dispatch = useDispatch();
+    const contacts = useSelector(getVisibleContacts);
 
     const handleInputChange = event => {
         const { value, name } = event.target;
@@ -38,6 +42,13 @@ export default function ContactForm() {
     };
     const handleSubmit = event => {
         event.preventDefault();
+        const idx = contacts.findIndex(
+            contact => contact.name.toLowerCase() === name.toLowerCase(),
+        );
+        if (idx !== -1) {
+            toast(`${name} is already in contacts`);
+            return;
+        }
         dispatch(contactsActions.addContact({ name, number }));
         reset();
     };
