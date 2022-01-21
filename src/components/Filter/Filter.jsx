@@ -5,7 +5,7 @@ import shortid from 'shortid';
 import styled from 'styled-components';
 import { Form } from 'react-bootstrap';
 
-import contactsActions from '../../store/contacts/actions';
+// import contactsActions from '../../store/contacts/actions';
 import { getFilter } from '../../store/contacts/selectors';
 
 const Label = styled.label`
@@ -20,11 +20,11 @@ export default function Filter({ title }) {
     const dispatch = useDispatch();
     const filter = useSelector(getFilter);
 
-    const onChange = value => dispatch(contactsActions.changeFilter(value));
+    // const onChange = value => dispatch(contactsActions.changeFilter(value));
 
     const handleFilterChange = event => {
         const { value } = event.target;
-        onChange(value.toLowerCase());
+        // onChange(value.toLowerCase());
     };
 
     const filterId = shortid.generate();
@@ -35,7 +35,8 @@ export default function Filter({ title }) {
                 type="text"
                 name="filter"
                 required
-                value={filter}
+                value={''}
+                // value={filter}
                 onChange={handleFilterChange}
                 placeholder="Search..."
                 id={filterId}

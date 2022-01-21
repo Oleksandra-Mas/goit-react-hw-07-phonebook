@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import ContactListItem from '../ContactListItem/';
 import styled from 'styled-components';
 
-import contactsActions from '../../store/contacts/actions';
+import { getContacts } from '../../store/contacts/actions';
 
 const List = styled.ul`
     margin-top: 20px;
@@ -12,7 +12,7 @@ const List = styled.ul`
 export default function ContactList({ contacts }) {
     const dispatch = useDispatch();
 
-    const onDelete = id => dispatch(contactsActions.deleteContact(id));
+    // const onDelete = id => dispatch(contactsActions.deleteContact(id));
 
     return (
         <List>
@@ -20,7 +20,7 @@ export default function ContactList({ contacts }) {
                 <ContactListItem
                     key={contact.id}
                     contact={contact}
-                    onDelete={onDelete}
+                    // onDelete={onDelete}
                 />
             ))}
         </List>
@@ -31,7 +31,7 @@ ContactList.propTypes = {
         PropTypes.shape({
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
-            number: PropTypes.string.isRequired,
+            phone: PropTypes.string.isRequired,
         }).isRequired,
     ).isRequired,
 };

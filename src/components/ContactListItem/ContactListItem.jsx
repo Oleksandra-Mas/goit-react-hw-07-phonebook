@@ -12,7 +12,7 @@ export default function ContactListItem({ contact, onDelete }) {
     return (
         <Item>
             <p>{contact.name}</p>
-            <a href={'tel:' + contact.number}>{contact.number}</a>
+            <a href={'tel:' + contact.phone}>{contact.phone}</a>
             <Button
                 variant="outline-dark"
                 type="button"
@@ -29,7 +29,7 @@ ContactListItem.propTypes = {
     contact: PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
     }).isRequired,
-    onDelete: PropTypes.func.isRequired,
+    // onDelete: PropTypes.func.isRequired,
 };

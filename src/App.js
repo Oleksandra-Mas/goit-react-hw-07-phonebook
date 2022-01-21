@@ -1,18 +1,33 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Alert } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
 
 import './App.css';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter/';
 import { getVisibleContacts } from './store/contacts/selectors';
+import { getContacts } from './store/contacts/actions';
 
 export default function App() {
     const contacts = useSelector(getVisibleContacts);
 
+    const dispatch = useDispatch();
+
+    // useEffect(() => {
+    //     const getPhotos = async () => {
+    //         const res = await fetchContacts();
+    //         console.log(res);
+    //     };
+    //     getPhotos();
+    // }, []);
+
+    useEffect(() => dispatch(getContacts()), [dispatch]);
+
+    console.log();
     return (
         <div className="App">
             <h1>Phonebook</h1>

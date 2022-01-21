@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import contactsActions from '../../store/contacts/actions';
+// import contactsActions from '../../store/contacts/actions';
 import { getVisibleContacts } from '../../store/contacts/selectors';
 
 const FormWrapper = styled.form`
@@ -49,7 +49,7 @@ export default function ContactForm() {
             toast(`${name} is already in contacts`);
             return;
         }
-        dispatch(contactsActions.addContact({ name, number }));
+        // dispatch(contactsActions.addContact({ name, number }));
         reset();
     };
 
