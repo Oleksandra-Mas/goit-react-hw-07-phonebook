@@ -31,5 +31,5 @@ ContactListItem.propTypes = {
         name: PropTypes.string.isRequired,
         phone: PropTypes.string.isRequired,
     }).isRequired,
-    // onDelete: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
 };

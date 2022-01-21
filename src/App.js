@@ -19,7 +19,7 @@ export default function App() {
 
     // useEffect(() => {
     //     const getPhotos = async () => {
-    //         const res = await fetchContacts();
+    //         const res = await deleteContact(1);
     //         console.log(res);
     //     };
     //     getPhotos();
